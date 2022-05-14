@@ -1,4 +1,6 @@
 .app-wrapper {
+   margin: 0 auto;
+   max-width: 1900px;
    height: 100%;
    grid-template-areas: 
   " h h "
@@ -6,22 +8,25 @@
    ;
    display: grid;
    grid-template-rows: 60px 1fr;
-   grid-template-columns: 2fr 10fr;
+   grid-template-columns: 20% 80%;
    grid-gap: 10px;
 }
 
 .header {
    grid-area: h;
-   background-color: #69c91a;
+   background-color: #ff7b00;
+   border-radius: 10px;
 }
 
 .header img {
    width: 60px;
+
 }
 
 .nav {
    grid-area: n;
-   background-color: #69c91a;
+   background-color: #f3b478;
+   border-radius: 10px;
 }
 
 .main-content {

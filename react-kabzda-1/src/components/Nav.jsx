@@ -1,9 +1,9 @@
 const Nav = () => {
    return (
       <nav className='nav'>
-         <div><a src='#'>My profile</a></div>
-         <div><a src='#'>News</a></div>
-         <div><a src='#'>Messages</a></div>
+         <div><a href='#'>My profile</a></div>
+         <div><a href='#'>News</a></div>
+         <div><a href='#'>Messages</a></div>
       </nav>
    )
 }

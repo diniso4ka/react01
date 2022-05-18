@@ -35,6 +35,7 @@ const Dialogs = (props) => {
 
    ]
 
+
    let dialogsElements = dialogsData.map(dialog => <DialogItem name={dialog.name} id={dialog.id} />)
    let messageElements = messagesData.map(message => <Message message={message.message} />)
 

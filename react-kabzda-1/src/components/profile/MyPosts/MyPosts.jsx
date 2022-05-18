@@ -1,7 +1,7 @@
 import s from './MyPosts.module.css'
 import Post from './Posts/Post.jsx'
 
-const MyPosts = () => {
+const MyPosts = (props) => {
 
    let postsData = [
       { id: 1, message: 'depressiia', likesCount: 12 },

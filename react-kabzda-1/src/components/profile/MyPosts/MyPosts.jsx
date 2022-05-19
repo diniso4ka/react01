@@ -1,8 +1,10 @@
 import s from './MyPosts.module.css'
 import Post from './Posts/Post.jsx'
-import { postsData } from '../../..'
 
-const MyPosts = (props) => {
+
+const MyPosts = ({ postsData }) => {
+
+
 
 
 

@@ -1,0 +1,8 @@
+.message {
+   background-color: rgb(248, 212, 159);
+   padding: 6px;
+}
+
+.active {
+   color: gold;
+}

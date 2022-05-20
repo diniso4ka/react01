@@ -52,6 +52,6 @@ div {
    grid-template-columns: 33% 33% 33%;
   justify-items: center;
   align-items: center;
-  grid-row-gap: 20px;
+  grid-row-gap: 15px;
 }
 

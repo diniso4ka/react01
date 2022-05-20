@@ -1,8 +1,15 @@
 .item {
    font-size: 18px;
+   color: #000;
+   margin: 10px 0 20px 0;
 }
 
 .item img {
+   height: 80px;
    width: 80px;
    border-radius: 50px;
+}
+
+.likesCount {
+   color:#000
 }

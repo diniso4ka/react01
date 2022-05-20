@@ -8,7 +8,7 @@ const Post = ({ message, likesCount }) => {
       <div className={s.item}>
          <img src="https://placepic.ru/wp-content/uploads/2018/01/art-krasivyie-kartinki-Putin-politika-1331294.jpeg" alt="" />
          {message}
-         <div>like: {likesCount}</div>
+         <div className={s.likesCount}>like: {likesCount}</div>
 
       </div>
    )

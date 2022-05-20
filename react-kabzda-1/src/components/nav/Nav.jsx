@@ -11,7 +11,7 @@ const Nav = ({ state }) => {
          <div className={s.item}><a href='/news'>News</a></div>
          <div className={s.item}><a href='/music'>Music</a></div>
          <div className={s.item}><a href='/settings'>Settings</a></div>
-         <Friends friendsData={state} className={s.friends} />
+         <Friends friendsData={state.friendsPage.friendsData} className={s.friends} />
       </nav>
    )
 }

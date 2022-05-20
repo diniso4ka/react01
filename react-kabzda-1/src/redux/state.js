@@ -9,6 +9,7 @@ let state = {
 
 
    },
+
    messagesPage: {
       dialogsData: [
          { id: 1, name: 'Denisochka' },

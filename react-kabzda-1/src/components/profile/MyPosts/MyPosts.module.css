@@ -1,3 +1,7 @@
 .item img {
    width: 50px;
 }
+
+textarea {
+border: 1px black solid;
+}

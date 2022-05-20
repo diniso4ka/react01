@@ -9,17 +9,13 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import { addPostToState, updateNewPostText, updateNewMessageText, sendMessage } from './redux/state'
+
 
 
 
 const App = () => {
-
-
-
-
-
-
-
+  window.state = state
 
   return (
     <BrowserRouter>
@@ -28,8 +24,18 @@ const App = () => {
         <Nav state={state} />
         <div className='app-wrapper-content'>
           <Routes>
-            <Route path='/profile/*' element={<Profile state={state.profilePage} />} />
-            <Route path='/dialogs/*' element={<Dialogs dialogsData={state.messagesPage.dialogsData} messagesData={state.messagesPage.messagesData} />} />
+            <Route path='/profile/*' element={<Profile
+              state={state.profilePage}
+              addPostToState={addPostToState}
+              updateNewPostText={updateNewPostText} />}
+            />
+            <Route path='/dialogs/*' element={<Dialogs
+              updateNewMessageText={updateNewMessageText}
+              sendMessage={sendMessage}
+              newMessageText={state.messagesPage.newMessageText}
+              dialogsData={state.messagesPage.dialogsData}
+              messagesData={state.messagesPage.messagesData} />}
+            />
           </Routes>
         </div>
       </div>

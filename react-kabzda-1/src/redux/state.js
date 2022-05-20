@@ -3,10 +3,8 @@ import { rerenderEntireTree } from '../render'
 let state = {
    profilePage: {
       postsData: [
-
       ],
-
-
+      newPostText: 'denis'
    },
 
    messagesPage: {
@@ -24,7 +22,8 @@ let state = {
          { id: 3, message: 'ded insaid' },
          { id: 4, message: 'oh yeah' },
 
-      ]
+      ],
+      newMessageText: 'denis',
    },
 
    friendsPage: {
@@ -46,8 +45,26 @@ export let addPostToState = (postMessage) => {
       likesCount: 0
    }
    state.profilePage.postsData.push(newPost)
-   rerenderEntireTree()
+   rerenderEntireTree(state)
 }
 
+export let updateNewPostText = (newText) => {
+   state.profilePage.newPostText = newText
+   rerenderEntireTree(state)
+}
+
+export let sendMessage = (text) => {
+   let newMessage = {
+      id: state.messagesPage.messagesData.length,
+      message: text,
+   }
+   state.messagesPage.messagesData.push(newMessage)
+   rerenderEntireTree(state)
+}
+
+export let updateNewMessageText = (newText) => {
+   state.messagesPage.newMessageText = newText
+   rerenderEntireTree(state)
+}
 
 export default state

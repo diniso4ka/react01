@@ -1,17 +1,22 @@
 import s from './MyPosts.module.css'
 import Post from './Posts/Post.jsx'
 import React from 'react'
-import { addPostToState } from '../../../redux/state'
 
 
-const MyPosts = ({ postsData }) => {
+
+const MyPosts = ({ postsData, newPostText, updateNewPostText, addPostToState }) => {
    let postsElement = postsData.map(post => <Post message={post.message} likesCount={post.likesCount} />)
    let newPostElement = React.createRef();
 
    let newPost = () => {
-      debugger
       let text = newPostElement.current.value
       addPostToState(text)
+      updateNewPostText('')
+   }
+
+   let onPostChange = () => {
+      let text = newPostElement.current.value
+      updateNewPostText(text)
    }
 
 
@@ -20,7 +25,7 @@ const MyPosts = ({ postsData }) => {
    return (
       <div ><h3>MyPosts</h3>
          <div>
-            <textarea ref={newPostElement}></textarea>
+            <textarea onChange={onPostChange} ref={newPostElement} value={newPostText}></textarea>
             <div>
                <button onClick={newPost}>Add post</button>
                <button>Remove</button>

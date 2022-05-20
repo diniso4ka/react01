@@ -3,15 +3,20 @@ import DialogsItem from './DialogsItem/DialogsItem'
 import Message from './Message/Message'
 import React from 'react'
 
-const Dialogs = ({ messagesData, dialogsData }) => {
+const Dialogs = ({ messagesData, dialogsData, updateNewMessageText, newMessageText, sendMessage }) => {
    let dialogsElements = dialogsData.map(dialog => <DialogsItem className={s.dialogItem} name={dialog.name} id={dialog.id} />)
    let messageElements = messagesData.map(message => <Message className={s.messageItem} message={message.message} />)
-
-
    let newMessageElement = React.createRef()
-   let sendMessage = () => {
+
+   let sendNewMessage = () => {
       let text = newMessageElement.current.value
-      alert(text)
+      sendMessage(text)
+      updateNewMessageText('')
+   }
+
+   let messageTextOnChange = () => {
+      let text = newMessageElement.current.value
+      updateNewMessageText(text)
    }
 
    return (
@@ -21,8 +26,8 @@ const Dialogs = ({ messagesData, dialogsData }) => {
          </div>
          <div className={s.messages}>
             {messageElements}
-            <textarea ref={newMessageElement}></textarea>
-            <button onClick={sendMessage}>send</button>
+            <textarea onChange={messageTextOnChange} ref={newMessageElement} value={newMessageText}></textarea>
+            <button onClick={sendNewMessage}>send</button>
          </div>
 
       </div>

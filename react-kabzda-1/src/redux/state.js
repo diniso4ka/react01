@@ -1,10 +1,9 @@
+import { rerenderEntireTree } from '../render'
+
 let state = {
    profilePage: {
       postsData: [
-         { id: 1, message: 'depressiia', likesCount: 12 },
-         { id: 2, message: 'tilt', likesCount: 15 },
-         { id: 3, message: 'dsadw', likesCount: 1215 },
-         { id: 4, message: 'tilgawergaewrgt', likesCount: 35 },
+
       ],
 
 
@@ -36,11 +35,19 @@ let state = {
          { id: 4, name: 'Lesha', avatar: 'https://all-aforizmy.ru/wp-content/uploads/2021/10/v-kakoy-serii-umryot-naruto-iz-populyarnogo-anime-1.jpg' },
          { id: 5, name: 'Masha', avatar: 'https://placepic.ru/wp-content/uploads/2021/02/image_562610131056464036330.jpg' },
       ]
-   }
-
-
-
+   },
 
 }
+
+export let addPostToState = (postMessage) => {
+   let newPost = {
+      id: state.profilePage.postsData.length,
+      message: postMessage,
+      likesCount: 0
+   }
+   state.profilePage.postsData.push(newPost)
+   rerenderEntireTree()
+}
+
 
 export default state

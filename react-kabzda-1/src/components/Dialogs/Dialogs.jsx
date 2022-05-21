@@ -26,8 +26,8 @@ const Dialogs = ({ messagesData, dialogsData, updateNewMessageText, newMessageTe
          </div>
          <div className={s.messages}>
             {messageElements}
-            <textarea onChange={messageTextOnChange} ref={newMessageElement} value={newMessageText}></textarea>
-            <button onClick={sendNewMessage}>send</button>
+            <textarea className={s.textArea} onChange={messageTextOnChange} ref={newMessageElement} value={newMessageText}></textarea>
+            <button className={s.sendButton} onClick={sendNewMessage}>send</button>
          </div>
 
       </div>

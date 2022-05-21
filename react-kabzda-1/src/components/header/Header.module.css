@@ -4,7 +4,8 @@
    
 }
 
-.header img {
-   width: 60px;
+.header h1 {
+   font-weight: 900;
+   font-size: 50px
 }
 

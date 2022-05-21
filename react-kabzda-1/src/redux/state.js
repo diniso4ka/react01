@@ -4,7 +4,7 @@ let state = {
    profilePage: {
       postsData: [
       ],
-      newPostText: 'denis'
+      newPostText: ''
    },
 
    messagesPage: {
@@ -17,13 +17,8 @@ let state = {
          { id: 6, name: 'SALARIK' },
       ],
       messagesData: [
-         { id: 1, message: 'Hi, im гуль' },
-         { id: 2, message: 'Hi, im 2' },
-         { id: 3, message: 'ded insaid' },
-         { id: 4, message: 'oh yeah' },
-
       ],
-      newMessageText: 'denis',
+      newMessageText: '',
    },
 
    friendsPage: {
@@ -66,5 +61,7 @@ export let updateNewMessageText = (newText) => {
    state.messagesPage.newMessageText = newText
    rerenderEntireTree(state)
 }
+
+
 
 export default state

@@ -4,19 +4,19 @@ import React from 'react'
 
 
 
-const MyPosts = ({ postsData, newPostText, updateNewPostText, addPostToState }) => {
-   let postsElement = postsData.map(post => <Post message={post.message} likesCount={post.likesCount} />)
+const MyPosts = ({ store }) => {
+   let postsElement = store.getState().profilePage.postsData.map(post => <Post message={post.message} likesCount={post.likesCount} />)
    let newPostElement = React.createRef();
 
    let newPost = () => {
       let text = newPostElement.current.value
-      addPostToState(text)
-      updateNewPostText('')
+      store.addPostToState(text)
+      store.updateNewPostText('')
    }
 
    let onPostChange = () => {
       let text = newPostElement.current.value
-      updateNewPostText(text)
+      store.updateNewPostText(text)
    }
 
 
@@ -25,7 +25,7 @@ const MyPosts = ({ postsData, newPostText, updateNewPostText, addPostToState }) 
    return (
       <div ><h3>MyPosts</h3>
          <div>
-            <textarea onChange={onPostChange} ref={newPostElement} value={newPostText}></textarea>
+            <textarea onChange={onPostChange} ref={newPostElement} value={store.getState().profilePage.newPostText}></textarea>
             <div>
                <button onClick={newPost}>Add post</button>
                <button>Remove</button>

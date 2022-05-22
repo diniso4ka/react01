@@ -63,8 +63,8 @@ let store = {
       rerenderEntireTree(this._state)
    },
 
-   updateNewMessageText(newText) {
-      this._state.messagesPage.newMessageText = newText
+   updateNewPostText(newText) {
+      this._state.profilePage.newPostText = newText
       rerenderEntireTree(this._state)
    }
 }

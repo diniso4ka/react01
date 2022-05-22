@@ -21,20 +21,18 @@ const App = () => {
     <BrowserRouter>
       <div className='app-wrapper'>
         <Header />
-        <Nav state={store.getState()} />
+        <Nav store={store} />
         <div className='app-wrapper-content'>
           <Routes>
             <Route path='/profile/*' element={<Profile
-              state={store.getState().profilePage}
-              addPostToState={store.getState().addPostToState}
-              updateNewPostText={store.getState().updateNewPostText} />}
+              store={store} />}
             />
             <Route path='/dialogs/*' element={<Dialogs
-              updateNewMessageText={store.getState().updateNewMessageText}
-              sendMessage={store.getState().sendMessage}
-              newMessageText={store.getState().messagesPage.newMessageText}
-              dialogsData={store.getState().messagesPage.dialogsData}
-              messagesData={store.getState().messagesPage.messagesData} />}
+              store={store}
+
+            />}
+
+
             />
           </Routes>
         </div>

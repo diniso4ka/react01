@@ -1,8 +1,8 @@
 import s from './Friends.module.css'
 import FriendsItem from './FriendItem/FriendItem'
 
-const Friends = ({ friendsData }) => {
-   let friendsUser = friendsData.map(friend => <FriendsItem name={friend.name} avatar={friend.avatar} />)
+const Friends = ({ store }) => {
+   let friendsUser = store.getState().friendsPage.friendsData.map(friend => <FriendsItem name={friend.name} avatar={friend.avatar} />)
 
    return (
       <div>

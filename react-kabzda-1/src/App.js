@@ -3,38 +3,38 @@ import Dialogs from './components/Dialogs/Dialogs';
 import Header from './components/Header/Header';
 import Nav from './components/Nav/Nav';
 import Profile from './components/profile/Profile';
-import state from './redux/state';
+import store from './redux/state';
 import {
   BrowserRouter,
   Routes,
   Route,
 } from "react-router-dom";
-import { addPostToState, updateNewPostText, updateNewMessageText, sendMessage } from './redux/state'
+
 
 
 
 
 const App = () => {
-  window.state = state
+
 
   return (
     <BrowserRouter>
       <div className='app-wrapper'>
         <Header />
-        <Nav state={state} />
+        <Nav state={store.getState()} />
         <div className='app-wrapper-content'>
           <Routes>
             <Route path='/profile/*' element={<Profile
-              state={state.profilePage}
-              addPostToState={addPostToState}
-              updateNewPostText={updateNewPostText} />}
+              state={store.getState().profilePage}
+              addPostToState={store.getState().addPostToState}
+              updateNewPostText={store.getState().updateNewPostText} />}
             />
             <Route path='/dialogs/*' element={<Dialogs
-              updateNewMessageText={updateNewMessageText}
-              sendMessage={sendMessage}
-              newMessageText={state.messagesPage.newMessageText}
-              dialogsData={state.messagesPage.dialogsData}
-              messagesData={state.messagesPage.messagesData} />}
+              updateNewMessageText={store.getState().updateNewMessageText}
+              sendMessage={store.getState().sendMessage}
+              newMessageText={store.getState().messagesPage.newMessageText}
+              dialogsData={store.getState().messagesPage.dialogsData}
+              messagesData={store.getState().messagesPage.messagesData} />}
             />
           </Routes>
         </div>

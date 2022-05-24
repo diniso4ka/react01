@@ -25,14 +25,14 @@ const App = () => {
         <div className='app-wrapper-content'>
           <Routes>
             <Route path='/profile/*' element={<Profile
-              store={store} />}
+              store={store}
+              dispatch={store.dispatch}
+            />}
             />
             <Route path='/dialogs/*' element={<Dialogs
               store={store}
-
+              dispatch={store.dispatch}
             />}
-
-
             />
           </Routes>
         </div>

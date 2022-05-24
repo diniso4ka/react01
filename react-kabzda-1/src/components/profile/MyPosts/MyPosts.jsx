@@ -4,19 +4,22 @@ import React from 'react'
 
 
 
-const MyPosts = ({ store }) => {
+const MyPosts = ({ store, dispatch }) => {
    let postsElement = store.getState().profilePage.postsData.map(post => <Post message={post.message} likesCount={post.likesCount} />)
    let newPostElement = React.createRef();
 
-   let newPost = () => {
+   let addPost = () => {
       let text = newPostElement.current.value
       store.addPostToState(text)
-      store.updateNewPostText('')
    }
 
    let onPostChange = () => {
+      debugger
       let text = newPostElement.current.value
-      store.updateNewPostText(text)
+      let action = { type: 'UPDATE-NEW-POST-TEXT', newText: text }
+      debugger
+      dispatch(action)
+
    }
 
 
@@ -27,7 +30,7 @@ const MyPosts = ({ store }) => {
          <div>
             <textarea onChange={onPostChange} ref={newPostElement} value={store.getState().profilePage.newPostText}></textarea>
             <div>
-               <button onClick={newPost}>Add post</button>
+               <button onClick={addPost}>Add post</button>
                <button>Remove</button>
             </div>
          </div>

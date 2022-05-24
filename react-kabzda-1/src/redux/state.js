@@ -36,36 +36,36 @@ let store = {
 
    getState() {
       return this._state
-   }
-   ,
+   },
 
-   addPostToState(postMessage) {
-      let newPost = {
-         id: this._state.profilePage.postsData.length,
-         message: postMessage,
-         likesCount: 0
+
+
+
+   dispatch(action) {
+      if (action.type === 'ADD-POST-TO-STATE') {
+         let newPost = {
+            id: this._state.profilePage.postsData.length,
+            message: this._state.profilePage.newPostText,
+            likesCount: 0
+         }
+         this._state.profilePage.postsData.push(newPost)
+         rerenderEntireTree(this._state)
+      } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+         debugger
+         this._state.profilePage.newPostText = action.newText
+         rerenderEntireTree(this._state)
+      } else if (action.type === 'ADD-MESSAGE-TO-STATE') {
+         let newMessage = {
+            id: this._state.messagesPage.messagesData.length,
+            message: this._state.messagesPage.newMessageText,
+         }
+         this._state.messagesPage.messagesData.push(newMessage)
+         rerenderEntireTree(this._state)
+      } else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
+         this._state.messagesPage.newMessageText = action.newText
+         rerenderEntireTree(this._state)
+
       }
-      this._state.profilePage.postsData.push(newPost)
-      rerenderEntireTree(this._state)
-   },
-
-   sendMessage(text) {
-      let newMessage = {
-         id: this._state.messagesPage.messagesData.length,
-         message: text,
-      }
-      this._state.messagesPage.messagesData.push(newMessage)
-      rerenderEntireTree(this._state)
-   },
-
-   updateNewMessageText(newText) {
-      this._state.messagesPage.newMessageText = newText
-      rerenderEntireTree(this._state)
-   },
-
-   updateNewPostText(newText) {
-      this._state.profilePage.newPostText = newText
-      rerenderEntireTree(this._state)
    }
 }
 
@@ -73,3 +73,4 @@ let store = {
 
 export default store
 window.store = store
+
